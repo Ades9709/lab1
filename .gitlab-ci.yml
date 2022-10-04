@@ -9,7 +9,7 @@ job:
   environment:
     name: main
   script:
-    - echo "Liquibase latest version:adsd" 
+    - echo "Liquibase latest version" 
 #    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
 #    - $DOWNLOAD_LB
 #    - $UNZIP_LB

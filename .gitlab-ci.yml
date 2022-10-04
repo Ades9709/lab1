@@ -4,7 +4,7 @@ variables:
   UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"
 job:
   tags:
-    - WindowsNode
+    - Windows
   stage: build
   environment:
     name: main

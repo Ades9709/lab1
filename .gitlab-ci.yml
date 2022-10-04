@@ -11,12 +11,12 @@ Liquibase-job:
     name: main
   script:
     - echo "Liquibase latest version:" 
-    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
-    - $DOWNLOAD_LB
-    - $UNZIP_LB
-    - echo "Hello, $GITLAB_USER_LOGIN!"
-    - which java
-    - ./liquibase/liquibase --help
+#    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
+#    - $DOWNLOAD_LB
+#    - $UNZIP_LB
+#    - echo "Hello, $GITLAB_USER_LOGIN!"
+#    - which java
+#    - ./liquibase/liquibase --help
 #    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_dev --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info status --verbose
 
 #test-job1:

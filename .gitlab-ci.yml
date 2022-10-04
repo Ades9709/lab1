@@ -1,0 +1,51 @@
+image: java:8
+
+build-job:
+  stage: build
+  environment:
+    name: dev
+  script:
+    - echo "Liquibase latest version:" 
+    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
+    - $DOWNLOAD_LB
+    - $UNZIP_LB
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - which java
+    - ./liquibase/liquibase --help
+    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_dev --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info status --verbose
+
+test-job1:
+  stage: test
+  environment:
+    name: test1
+  script:
+    - $DOWNLOAD_LB
+    - $UNZIP_LB
+    - echo "This job tests liquibase update in test environment"
+    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_test1 --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info update
+
+test-job2:
+  stage: test
+  environment:
+    name: test2
+  script:
+    - $DOWNLOAD_LB
+    - $UNZIP_LB
+    - echo "This job tests liquibase rollback in test environment"
+    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_test2 --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info update
+    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_test2 --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info rollbackCount 1
+
+deploy-prod:
+  stage: deploy
+  environment:
+    name: prod
+  script:
+    - $DOWNLOAD_LB
+    - $UNZIP_LB
+    - echo "This job deploys Liquibase in a production environment from the $CI_COMMIT_BRANCH branch."
+    - ./liquibase/liquibase --url=jdbc:h2:file:./H2_project/liquibase_prod --changeLogFile=./H2_project/myChangeLog.xml --logLevel=info update
+
+variables:
+  VERSION: "4.4.3"
+  DOWNLOAD_LB: "curl -L https://github.com/liquibase/liquibase/releases/download/v${VERSION}/liquibase-${VERSION}.zip --output liquibase-${VERSION}.zip"
+  UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"

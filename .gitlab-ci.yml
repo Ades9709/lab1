@@ -6,7 +6,7 @@ variables:
 Liquibase-job:
   tags:
     - WindowsNode-liquibase
-  stage: 
+  stage: build
   environment:
     name: main
   script:

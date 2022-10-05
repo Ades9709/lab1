@@ -11,7 +11,7 @@ job:
   script:
     - echo "Liquibase latest version" 
     - dir
-    - C:\liquibase\liquibase\liquibase status
+    - C:\liquibase\liquibase\liquibase status --log-level INFO
 
 #    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
 #    - $DOWNLOAD_LB

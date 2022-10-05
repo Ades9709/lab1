@@ -10,7 +10,9 @@ job:
     name: main
   script:
     - echo "Liquibase latest version" 
-    - liquibase --help
+    - dir
+    - C:\liquibase\liquibase\liquibase --help
+
 #    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
 #    - $DOWNLOAD_LB
 #    - $UNZIP_LB

@@ -1,7 +1,3 @@
 --comment: example comment
-update dbname
-set row_name = val
-where row_name_id = val;
-
-commit;
+CREATE TABLE person (firstname VARCHAR(20), surname VARCHAR(20), address VARCHAR(20), sex CHAR(1), birth DATE);
 --rollback

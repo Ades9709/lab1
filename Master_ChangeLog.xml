@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<databaseChangelog
+<databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
@@ -14,4 +14,4 @@
     <include file="./Deploy/Data/0002_ChangeSet-change2.xml"/>    
     <include file="./Deploy/Data/0003_ChangeSet-change3.xml"/>
     -->
-</databaseChangelog>  
+</databaseChangeLog>  

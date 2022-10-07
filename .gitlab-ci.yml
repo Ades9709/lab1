@@ -2,7 +2,7 @@ variables:
   VERSION: "4.4.3"
   DOWNLOAD_LB: "curl -L https://github.com/liquibase/liquibase/releases/download/v${VERSION}/liquibase-${VERSION}.zip --output liquibase-${VERSION}.zip"
   UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"
-job:
+status:
   tags:
     - Windows
   stage: build
@@ -12,12 +12,27 @@ job:
   #  - echo "Liquibase latest version" 
   #  - dir
     - C:\liquibase\liquibase\liquibase status --log-level INFO
+
+validate:
+  tags:
+    - Windows
+  stage: build
+  environment:
+    name: main
+  script:
     - C:\liquibase\liquibase\liquibase validate --log-level INFO
-    - C:\liquibase\liquibase\liquibase checks run --log-level INFO
+    - C:\liquibase\liquibase\liquibase checks run --log-level INFO 
+
+update:
+  tags:
+    - Windows
+  stage: build
+  environment:
+    name: main
+  script:
     - C:\liquibase\liquibase\liquibase tag version-1 --log-level INFO
     - C:\liquibase\liquibase\liquibase update --log-level INFO
     - C:\liquibase\liquibase\liquibase history --log-level INFO
-    
 #    - curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g'
 #    - $DOWNLOAD_LB
 #    - $UNZIP_LB

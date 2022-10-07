@@ -9,8 +9,8 @@ job:
   environment:
     name: main
   script:
-    - echo "Liquibase latest version" 
-    - dir
+  #  - echo "Liquibase latest version" 
+  #  - dir
     - C:\liquibase\liquibase\liquibase status --log-level INFO
     - C:\liquibase\liquibase\liquibase validate --log-level INFO
     - C:\liquibase\liquibase\liquibase checks run --log-level INFO

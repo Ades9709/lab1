@@ -6,13 +6,13 @@
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
     <changeSet author="author1" id="1">
-      <sqlFile dbms="db_engine"
+      <sqlFile dbms="mssql"
                     encoding="utf8"
                     endDelimiter=";"
                     path="./0001_ChangeSet-change1.sql"
                     relativeToChangelogFile="true"
                     splitStatements="true"
                     stripComments="true"/>
-    </changeset>
+    </changeSet>
     
 </databaseChangeLog>  

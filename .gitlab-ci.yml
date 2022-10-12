@@ -11,7 +11,10 @@ dev:
   script:
     - echo "$CI_COMMIT_BRANCH"
     - dir
+    - cd properties
+    - dir
     - liquibase status --log-level INFO
+
 #    - liquibase validate --log-level INFO
 #    - liquibase checks run --log-level INFO
 #    - liquibase tag $CI_COMMIT_SHA --log-level INFO

@@ -5,10 +5,10 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
-    <include file="./Deploy/Data/0001_ChangeSet-change1.xml"/>
-    <include file="./Deploy/Data/0002_ChangeSet-change2.xml"/>
+    <include file="./Deploy/Data/0001_ChangeSet-createtableperson.xml"/>
+    
     <!--
-    <include file="./Deploy/Data/0002_ChangeSet-change2.xml"/>    
-    <include file="./Deploy/Data/0003_ChangeSet-change3.xml"/>
+    <include file="./Deploy/Data/0002_ChangeSet-insertdataintableperson.xml"/>    
+    <include file="./Deploy/Data/0003_ChangeSet-.xml"/>
     -->
 </databaseChangeLog>  

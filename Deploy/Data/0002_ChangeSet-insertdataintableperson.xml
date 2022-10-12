@@ -9,7 +9,7 @@
       <sqlFile dbms="mssql"
                     encoding="utf8"
                     endDelimiter=";"
-                    path="./0002_ChangeSet-change2.sql"
+                    path="./0002_ChangeSet-insertdataintableperson.sql"
                     relativeToChangelogFile="true"
                     splitStatements="true"
                     stripComments="true"/>

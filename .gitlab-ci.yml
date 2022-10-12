@@ -13,7 +13,7 @@ dev:
     - liquibase status --log-level INFO
     - liquibase validate --log-level INFO
     - liquibase checks run --log-level INFO
-    - liquibase tag version-1 --log-level INFO
+    - liquibase tag $CI_COMMIT_SHA --log-level INFO
     - liquibase update --log-level INFO
     - liquibase history --log-level INFO
 

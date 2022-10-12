@@ -1,4 +1,4 @@
 --comment: example comment
 INSERT INTO dbo.person (firstname, surname, address, sex, birth)
-VALUES (Juan, Perez, cra19#120, m, 10/12/1998);
+VALUES ('Juan', 'Perez', 'cra 19 # 120', 'm', '10/12/1998');
 --rollback

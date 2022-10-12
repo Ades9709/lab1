@@ -11,7 +11,7 @@ status:
   script:
   #  - echo "Liquibase latest version" 
   #  - dir
-    - C:\liquibase\liquibase\liquibase status --log-level INFO
+    - liquibase status --log-level INFO
 
 validate:
   tags:

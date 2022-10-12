@@ -9,6 +9,7 @@ dev:
   environment:
     name: main
   script:
+    - echo "$CI_COMMIT_BRANCH"
     - liquibase status --log-level INFO
     - liquibase validate --log-level INFO
     - liquibase checks run --log-level INFO

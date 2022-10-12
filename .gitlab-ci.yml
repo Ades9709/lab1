@@ -10,9 +10,9 @@ dev:
     name: main
   script:
     - echo "$CI_COMMIT_BRANCH"
-    - dir
-    - cd properties
-    - dir
+ #   - dir
+#    - cd properties
+#    - dir
     - liquibase status --log-level INFO
 
 #    - liquibase validate --log-level INFO

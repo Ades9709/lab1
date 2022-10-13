@@ -4,7 +4,9 @@
 #  UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"
 dev:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: ‘$CI_MERGE_REQUEST_APPROVED’
+      when: always  
   tags:
     - Windows
   stage: build

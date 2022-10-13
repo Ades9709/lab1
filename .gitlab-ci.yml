@@ -3,6 +3,10 @@
 #  DOWNLOAD_LB: "curl -L https://github.com/liquibase/liquibase/releases/download/v${VERSION}/liquibase-${VERSION}.zip --output liquibase-${VERSION}.zip"
 #  UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"
 dev:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+#    - if: $CI_MERGE_REQUEST_APPROVED
+#      when: always  
   tags:
     - Windows
   stage: build
@@ -10,6 +14,9 @@ dev:
     name: main
   script:
     - echo "$CI_COMMIT_BRANCH"
+ #   - dir
+#    - cd properties
+#    - dir
     - liquibase status --log-level INFO
     - liquibase validate --log-level INFO
     - liquibase checks run --log-level INFO

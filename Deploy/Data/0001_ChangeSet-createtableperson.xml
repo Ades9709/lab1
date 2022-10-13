@@ -9,7 +9,7 @@
       <sqlFile dbms="mssql"
                     encoding="utf8"
                     endDelimiter=";"
-                    path="./0001_ChangeSet-change1.sql"
+                    path="./0001_ChangeSet-createtableperson.sql"
                     relativeToChangelogFile="true"
                     splitStatements="true"
                     stripComments="true"/>

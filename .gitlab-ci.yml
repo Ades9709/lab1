@@ -5,7 +5,7 @@
 dev:
   rules:
 #    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    - if: ‘$CI_MERGE_REQUEST_APPROVED’
+    - if: $CI_MERGE_REQUEST_APPROVED
       when: always  
   tags:
     - Windows

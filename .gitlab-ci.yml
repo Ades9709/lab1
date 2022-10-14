@@ -15,7 +15,7 @@ dev:
   script:
     - echo "$CI_COMMIT_BRANCH"
     - pwd
-    - if ($CI_COMMIT_BRANCH -eq "dev") {ren $pwd\properties\dev_liquibase.properties liquibase.properties & ((Get-Content -path $pwd\properties\liquibase.properties -Raw) -replace 'userdb',"$User_DB_dev") | Set-Content -Path $pwd\properties\liquibase.properties}
+    - if ($CI_COMMIT_BRANCH -eq "dev") {ren $pwd\properties\dev_liquibase.properties liquibase.properties | ((Get-Content -path $pwd\properties\liquibase.properties -Raw) -replace 'userdb',"$User_DB_dev") | Set-Content -Path $pwd\properties\liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "qa") {ren $pwd\properties\qa_liquibase.properties liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "main") {ren $pwd\properties\prod_liquibase.properties liquibase.properties}
     - Move-Item $pwd\properties\liquibase.properties $pwd

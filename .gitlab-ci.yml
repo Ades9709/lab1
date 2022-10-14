@@ -15,7 +15,7 @@ dev:
   script:
     - echo "$CI_COMMIT_BRANCH"
     - pwd
-    - Start-Process %pwd\environment.bat
+    - Start-Process $pwd\environment.bat
 #    - Start-Process "cmd.exe"  "/c %pwd\environment.bat"
 #    - cd properties
 #    - dir

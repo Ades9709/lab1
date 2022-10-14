@@ -16,7 +16,6 @@ dev:
     - echo "$CI_COMMIT_BRANCH"
     - dir
     - environment.bat
-    - echo "$CI_COMMIT_BRANCH"
 #    - cd properties
 #    - dir
 #    - liquibase status --log-level INFO

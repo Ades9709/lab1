@@ -19,8 +19,8 @@ dev:
     - if ($CI_COMMIT_BRANCH -eq "qa") {ren $pwd\properties\qa_liquibase.properties liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "main") {ren $pwd\properties\prod_liquibase.properties liquibase.properties}
     - Move-Item $pwd\properties\liquibase.properties $pwd
-    - ((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'userdb','$User_DB') | Set-Content -Path $pwd\liquibase.properties
-    - ((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'passworddb','$Password_DB') | Set-Content -Path $pwd\liquibase.properties
+    - ((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'userdb',"$User_DB") | Set-Content -Path $pwd\liquibase.properties
+    - ((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'passworddb',"$Password_DB") | Set-Content -Path $pwd\liquibase.properties
     - Get-Content -path $pwd\liquibase.properties
 
 #    - rename $pwd\properties

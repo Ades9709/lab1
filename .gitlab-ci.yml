@@ -15,9 +15,9 @@ dev:
   script:
     - echo "$CI_COMMIT_BRANCH"
     - pwd
-    - if $CI_COMMIT_BRANCH == "dev" ren $pwd\properties\dev_liquibase.properties liquibase.properties
-    - if $CI_COMMIT_BRANCH == "qa" ren $pwd\properties\qa_liquibase.properties liquibase.properties
-    - if $CI_COMMIT_BRANCH == "main" ren $pwd\properties\prod_liquibase.properties liquibase.properties
+    - if $CI_COMMIT_BRANCH == "dev" (ren $pwd\properties\dev_liquibase.properties liquibase.properties)
+    - if $CI_COMMIT_BRANCH == "qa" (ren $pwd\properties\qa_liquibase.properties liquibase.properties)
+    - if $CI_COMMIT_BRANCH == "main" (ren $pwd\properties\prod_liquibase.properties liquibase.properties)
     - Move-Item $pwd\properties\liquibase.properties $pwd
     - dir 
 #    - rename $pwd\properties

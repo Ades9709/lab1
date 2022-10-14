@@ -2,7 +2,7 @@
 #  VERSION: "4.4.3"
 #  DOWNLOAD_LB: "curl -L https://github.com/liquibase/liquibase/releases/download/v${VERSION}/liquibase-${VERSION}.zip --output liquibase-${VERSION}.zip"
 #  UNZIP_LB: "unzip -o -d liquibase liquibase-${VERSION}.zip"
-pre-build:
+Execute-liquibase-commands:
   #rules:
   #  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 #    - if: $CI_MERGE_REQUEST_APPROVED
@@ -21,13 +21,12 @@ pre-build:
     - Move-Item $pwd\properties\liquibase.properties $pwd
     - if ($CI_COMMIT_BRANCH -eq "dev") {((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'userdb',"$User_DB_dev") | Set-Content -Path $pwd\liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "dev") {((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'passworddb',"$Password_DB_dev") | Set-Content -Path $pwd\liquibase.properties}
-    - dir
-    - liquibase status --log-level INFO
-    - liquibase validate --log-level INFO
-    - liquibase checks run --log-level INFO
-    - liquibase tag $CI_COMMIT_SHA --log-level INFO
-    - liquibase update --log-level INFO
-    - liquibase history --log-level INFO
+#    - liquibase status --log-level INFO
+#    - liquibase validate --log-level INFO
+#    - liquibase checks run --log-level INFO
+#    - liquibase tag $CI_COMMIT_SHA --log-level INFO
+#    - liquibase update --log-level INFO
+#    - liquibase history --log-level INFO
 
 #build:
 #  tags:

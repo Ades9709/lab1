@@ -12,7 +12,7 @@ pre-build:
   stage: build
   environment:
     name: main
-  script:
+  before_script:
     - echo "$CI_COMMIT_BRANCH"
     - pwd
     - if ($CI_COMMIT_BRANCH -eq "dev") {ren $pwd\properties\dev_liquibase.properties liquibase.properties}
@@ -21,20 +21,22 @@ pre-build:
     - Move-Item $pwd\properties\liquibase.properties $pwd
     - if ($CI_COMMIT_BRANCH -eq "dev") {((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'userdb',"$User_DB_dev") | Set-Content -Path $pwd\liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "dev") {((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'passworddb',"$Password_DB_dev") | Set-Content -Path $pwd\liquibase.properties}
-
-build:
-  tags:
-    - Windows
-  stage: build
-  environment:
-    name: main
-  script:  
+  script:
     - liquibase status --log-level INFO
     - liquibase validate --log-level INFO
     - liquibase checks run --log-level INFO
     - liquibase tag $CI_COMMIT_SHA --log-level INFO
     - liquibase update --log-level INFO
     - liquibase history --log-level INFO
+
+#build:
+#  tags:
+#    - Windows
+#  stage: build
+#  environment:
+#    name: main
+#  script:  
+    
 #  tags:
 #    - Windows
 #  stage: build

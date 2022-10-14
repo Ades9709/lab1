@@ -14,7 +14,7 @@ Execute-liquibase-commands:
     name: main
   script:
     - echo "$CI_COMMIT_BRANCH"
-    - pwd
+#    - pwd
     - if ($CI_COMMIT_BRANCH -eq "dev") {ren $pwd\properties\dev_liquibase.properties liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "qa") {ren $pwd\properties\qa_liquibase.properties liquibase.properties}
     - if ($CI_COMMIT_BRANCH -eq "main") {ren $pwd\properties\prod_liquibase.properties liquibase.properties}

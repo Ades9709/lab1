@@ -14,8 +14,8 @@ dev:
     name: main
   script:
     - echo "$CI_COMMIT_BRANCH"
-    - dir
-    - environment.bat
+    - pwd
+    - Start-Process "cmd.exe"  "/c %pwd\environment.bat"
 #    - cd properties
 #    - dir
 #    - liquibase status --log-level INFO

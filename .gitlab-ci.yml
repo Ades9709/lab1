@@ -23,11 +23,11 @@ Execute-liquibase-commands:
     - if ($CI_COMMIT_BRANCH -eq "dev") {((Get-Content -path $pwd\liquibase.properties -Raw) -replace 'passworddb',"$Password_DB_dev") | Set-Content -Path $pwd\liquibase.properties}
     - Get-Content -path $pwd\liquibase.properties
     - liquibase status --log-level INFO
-#    - liquibase validate --log-level INFO
-#    - liquibase checks run --log-level INFO
-#    - liquibase tag $CI_COMMIT_SHA --log-level INFO
-#    - liquibase update --log-level INFO
-#    - liquibase history --log-level INFO
+    - liquibase validate --log-level INFO
+    - liquibase checks run --log-level INFO
+    - liquibase tag $CI_COMMIT_SHA --log-level INFO
+    - liquibase update --log-level INFO
+    - liquibase history --log-level INFO
 
 #build:
 #  tags:

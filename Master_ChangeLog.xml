@@ -6,7 +6,7 @@
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
     <include file="./Deploy/Data/0001_ChangeSet-createtableperson.xml"/>
-    
+    <include file="./Deploy/Data/0002_ChangeSet-insertdataintableperson.xml"/>
     <!--
     <include file="./Deploy/Data/0002_ChangeSet-insertdataintableperson.xml"/>    
     <include file="./Deploy/Data/0003_ChangeSet-.xml"/>
